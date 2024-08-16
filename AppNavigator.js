@@ -66,10 +66,6 @@ const AppNavigator = () => {
       <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
       <Stack.Screen name="EditBadge" component={EditBadge} />
 
-
-
-
-
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Inbox" component={Inbox} />
       <Stack.Screen name="MessageSccreen" component={MessageSccreen} />
@@ -77,6 +73,10 @@ const AppNavigator = () => {
 
 
 
+
+
+
+      {/* not used  old version*/}
       <Stack.Screen name="PieceDetails" component={PieceDetails} />
       <Stack.Screen name="ClosetPickup" component={ClosetPickup} />
       <Stack.Screen name="UploadImages" component={UploadImages} />

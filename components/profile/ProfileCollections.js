@@ -1,24 +1,25 @@
-
-import React, { useState } from 'react';
-import {
-    View, StyleSheet, Dimensions, TouchableOpacity, Image, Text
-} from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react';
+import cap from "../../assets/images/capOne.png";
+import upper from "../../assets/images/upperOne.png";
+import shorts from "../../assets/images/shorts.png";
+import shoes from "../../assets/images/shoesOne.png";
+import COLORS from '../../const/colors';
 import { useNavigation } from '@react-navigation/native';
-import cap from "../assets/images/capOne.png";
-import upper from "../assets/images/upperOne.png";
-import pants from "../assets/images/shorts.png";
-import shoes from "../assets/images/shoesOne.png";
-import COLORS from '../const/colors';
 
-
-const FitsDashboard = () => {
+const ProfileCollections = () => {
     const navigationRoute = useNavigation();
-    return (
 
+    return (
         <View style={[styles.fitItemsContainer]}>
             {[1, 2, 3, 4, 5, 6].map((_, index) => (
-                <TouchableOpacity key={index} style={styles.fitItem} onPress={() => navigationRoute.navigate("FitDetails")}>
+                <TouchableOpacity key={index} style={styles.fitItem} onPress={() => navigationRoute.navigate("CollectionsDetails")}>
+
                     <View style={styles.fitItemWrapper}>
+                        <View style={{ alignItems: "center" }}>
+                            <Text style={{ fontWeight: "600" }}>Summertime</Text>
+                            <Text style={{ fontSize: 12, color: COLORS.SecondaryDark }}>2 Looks</Text>
+                        </View>
                         <View>
                             <Image
                                 source={cap}
@@ -35,7 +36,7 @@ const FitsDashboard = () => {
                         </View>
                         <View>
                             <Image
-                                source={pants}
+                                source={shorts}
                                 style={styles.lowerItem}
                                 resizeMode='center'
                             />
@@ -51,33 +52,24 @@ const FitsDashboard = () => {
                 </TouchableOpacity>
             ))}
         </View>
+    )
+}
 
-    );
-};
-
-export default FitsDashboard;
+export default ProfileCollections;
 
 const { width, height } = Dimensions.get('window');
 
+
 const styles = StyleSheet.create({
-    fitItemsContainer: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", marginTop: 20},
+    fitItemsContainer: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", marginTop: 20 },
     fitItem: { width: "30%", marginBottom: 20, position: "relative", marginHorizontal: 5 },
     fitItemWrapper: {
         alignItems: "center", padding: 10, borderRadius: 10, backgroundColor: COLORS.white,
-        shadowColor: "#000",  shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25,
+        shadowColor: "#000", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25,
         shadowRadius: 3.84, elevation: 5,
     },
-    stylesCssOne: { borderWidth: 0, borderRadius: 10, marginTop: 20, width: "100%" },
-    headItem: { width: width * 0.09, height: height * 0.03 },
-    upperItem: { width: width * 0.2, height: height * 0.1 },
-    lowerItem: { width: width * 0.2, height: height * 0.1 },
-    shoesItem: { width: width * 0.2, height: width * 0.1 },
-    ticmarkWrapper: { position: "absolute", top: 15, right: 15 },
-    ticmark: { width: 18, height: 18, },
-    addPiece: {
-        width: width * 0.27, marginBottom: 10, alignItems: 'center', justifyContent: 'center',
-    },
-    addPieceText: { fontSize: 80, fontWeight: '400', color: COLORS.ShadowDarkest, textAlign: "center" },
-    addPieceTextTwo: { fontSize: 18, fontWeight: '500', color: COLORS.ShadowDarkest },
-
-});
+    headItem: { width: width * 0.08, height: height * 0.02, marginVertical: 8 },
+    upperItem: { width: width * 0.15, height: height * 0.075, },
+    lowerItem: { width: width * 0.15, height: height * 0.075, marginVertical: 8 },
+    shoesItem: { width: width * 0.15, height: width * 0.075 },
+})

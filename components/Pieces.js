@@ -1,7 +1,4 @@
 
-
-
-
 import React from 'react';
 import {
     View, Text, StyleSheet,
@@ -59,12 +56,6 @@ const Pieces = () => {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.addPiece} onPress={() => navigationRoute.navigate("AddtoCloset")}>
                     <Image
-                        source={require('../assets/images/Item.png')}
-                        style={styles.pieceImage}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.addPiece} onPress={() => navigationRoute.navigate("AddtoCloset")}>
-                    <Image
                         source={require('../assets/images/Item2.png')}
                         style={styles.pieceImage}
                     />
@@ -87,6 +78,19 @@ const Pieces = () => {
                         style={styles.pieceImage}
                     />
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.addPiece} onPress={() => navigationRoute.navigate("AddtoCloset")}>
+                    <Image
+                        source={require('../assets/images/Item2.png')}
+                        style={styles.pieceImage}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.addPiece} onPress={() => navigationRoute.navigate("AddtoCloset")}>
+                    <Image
+                        source={require('../assets/images/Item.png')}
+                        style={styles.pieceImage}
+                    />
+                </TouchableOpacity>
+
             </View>
         </View>
 
