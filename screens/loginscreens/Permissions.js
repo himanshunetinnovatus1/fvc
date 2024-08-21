@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Switch } from 'react-native-switch';
 import backArrow from '../../assets/images/backArrow.png';
 import ThemeStyle from '../../const/ThemeStyle';
+import Switchbtn from '../../components/buttons/Switchbtn';
 
 const Permissions = () => {
     const navigation = useNavigation();
@@ -25,7 +26,7 @@ const Permissions = () => {
             <ScrollView style={[PageStyle.container, ThemeStyle.iosClass]} contentContainerStyle={PageStyle.contentContainerStyle}>
                 <Loader visible={loading} />
                 <View style={styles.mainWrapper}>
-                    <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigation.navigate("EmailVerification")}>
+                    <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigation.goBack()}>
                         <Image
                             source={backArrow}
                             style={styles.backArrow}
@@ -52,19 +53,7 @@ const Permissions = () => {
                                 Easily edit images of your pieces directly from your Camera Roll on Fitted.
                             </Text>
                         </View>
-                        <Switch
-                            value={photosPermission}
-                            onValueChange={setPhotosPermission}
-                            activeText={''}
-                            inActiveText={''}
-                            circleSize={30}
-                            style={styles.switch}
-                            circleBorderWidth={3}
-                            backgroundInactive={COLORS.ShadowLight}
-                            circleBorderInactiveColor={COLORS.ShadowLight}
-                            backgroundActive={COLORS.SecondaryDarkest}
-                            circleBorderActiveColor={COLORS.SecondaryDarkest}
-                        />
+                        <Switchbtn value={photosPermission} setFun={setPhotosPermission} />
                     </View>
 
                     <View style={styles.permissionContainer}>
@@ -79,19 +68,7 @@ const Permissions = () => {
                                 Capture pieces right from your phone.
                             </Text>
                         </View>
-                        <Switch
-                            value={cameraPermission}
-                            onValueChange={setCameraPermission}
-                            activeText={''}
-                            inActiveText={''}
-                            circleSize={30}
-                            style={styles.switch}
-                            circleBorderWidth={3}
-                            backgroundInactive={COLORS.ShadowLight}
-                            circleBorderInactiveColor={COLORS.ShadowLight}
-                            backgroundActive={COLORS.SecondaryDarkest}
-                            circleBorderActiveColor={COLORS.SecondaryDarkest}
-                        />
+                        <Switchbtn value={cameraPermission} setFun={setCameraPermission} />
                     </View>
 
                     <View style={styles.permissionContainer}>
@@ -106,19 +83,7 @@ const Permissions = () => {
                                 Be notified on when new pieces are uploaded and outfit suggestions.
                             </Text>
                         </View>
-                        <Switch
-                            value={notificationsPermission}
-                            onValueChange={setNotificationsPermission}
-                            activeText={''}
-                            inActiveText={''}
-                            circleSize={30}
-                            style={styles.switch}
-                            circleBorderWidth={3}
-                            backgroundInactive={COLORS.ShadowLight}
-                            circleBorderInactiveColor={COLORS.ShadowLight}
-                            backgroundActive={COLORS.SecondaryDarkest}
-                            circleBorderActiveColor={COLORS.SecondaryDarkest}
-                        />
+                        <Switchbtn value={notificationsPermission} setFun={setNotificationsPermission} />
                     </View>
 
                     <View style={styles.permissionContainer}>
@@ -133,19 +98,7 @@ const Permissions = () => {
                                 Get accurate outfit suggestions based on weather and local culture.
                             </Text>
                         </View>
-                        <Switch
-                            value={locationPermission}
-                            onValueChange={setLocationPermission}
-                            activeText={''}
-                            inActiveText={''}
-                            circleSize={30}
-                            style={styles.switch}
-                            circleBorderWidth={3}
-                            backgroundInactive={COLORS.ShadowLight}
-                            circleBorderInactiveColor={COLORS.ShadowLight}
-                            backgroundActive={COLORS.SecondaryDarkest}
-                            circleBorderActiveColor={COLORS.SecondaryDarkest}
-                        />
+                        <Switchbtn value={locationPermission} setFun={setLocationPermission} />
                     </View>
 
                     <View style={styles.permissionContainer}>
@@ -160,19 +113,7 @@ const Permissions = () => {
                                 Connect with people you already know on Fitted by syncing your contacts.
                             </Text>
                         </View>
-                        <Switch
-                            value={contactsPermission}
-                            onValueChange={setContactsPermission}
-                            activeText={''}
-                            inActiveText={''}
-                            circleSize={30}
-                            style={styles.switch}
-                            circleBorderWidth={3}
-                            backgroundInactive={COLORS.ShadowLight}
-                            circleBorderInactiveColor={COLORS.ShadowLight}
-                            backgroundActive={COLORS.SecondaryDarkest}
-                            circleBorderActiveColor={COLORS.SecondaryDarkest}
-                        />
+                        <Switchbtn value={contactsPermission} setFun={setContactsPermission} />
                     </View>
 
                 </View>
@@ -196,7 +137,7 @@ const Permissions = () => {
 };
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
-    mainContainer: { paddingHorizontal: width * 0.06, paddingTop: 0 },
+    mainContainer: { paddingHorizontal: 20, paddingTop: 0 },
     permissionContainer: {
         flexDirection: 'row', width: '100%', paddingVertical: 10,
         alignItems: 'center', borderBottomWidth: 0.8, borderBottomColor: COLORS.ShadowLight,
@@ -207,14 +148,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
         paddingVertical: width * 0.06, position: 'relative', marginBottom: height * 0.015,
     },
-    backArrowWrapper: { position: 'absolute', left: width * 0.06, },
+    backArrowWrapper: { position: 'absolute', left: 20, },
     backArrow: { width: 23, height: 23, },
     nameWrapper: { flexDirection: "row", justifyContent: "center", alignItems: "center", },
     nameText: { color: COLORS.ShadowDarkest, fontSize: 24, fontWeight: '700', textAlign: 'center' },
     icon: { width: 40, },
     textContainer: { flex: 1, paddingHorizontal: 5, },
-    switch: { marginLeft: 10, },
-
 });
 
 export default Permissions;

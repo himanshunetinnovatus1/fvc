@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  View, Text, Dimensions, StyleSheet, SafeAreaView, Image,
-} from 'react-native';
+import { View, Text, Dimensions, StyleSheet, SafeAreaView, Image } from 'react-native';
 import LogoWhite from '../assets/images/welcomeImageCropped.png';
 import CustomButton from '../components/CustomButton';
 import COLORS from '../const/colors';
@@ -45,33 +43,20 @@ const HomeScreen = () => {
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, backgroundColor: "#f8f8f8"
-  },
-
-  logoContainer: {
-    flex: 0.9,
-    justifyContent: 'center', alignItems: 'center',
-
-  },
+  container: { flex: 1, backgroundColor: "#f8f8f8" },
+  logoContainer: { flex: 0.9, justifyContent: 'center', alignItems: 'center', },
   logo: { width: width * 0.8 },
   text: {
     textAlign: "center", fontSize: 35, color: "black", fontWeight: '500',
   },
   buttonContainer: {
-    position: 'absolute', bottom: 40,
-    alignSelf: 'stretch', alignItems: 'center',
-    width: width,
+    position: 'absolute', bottom: 40, alignSelf: 'stretch', alignItems: 'center', width: width,
   },
   buttonStyle: {
-    backgroundColor: COLORS.btnColor,
-    width: width * 0.9, borderWidth: 0,
+    backgroundColor: COLORS.btnColor, width: width * 0.9, borderWidth: 0,
   },
   textStyle: { color: "black" },
-  buttonStyleTwo: {
-    backgroundColor: COLORS.white, width: width * 0.9,
-    marginTop: 10, borderWidth: 0
-  },
+
 });
 
 export default HomeScreen;

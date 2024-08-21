@@ -65,7 +65,7 @@ const ThemeStyle = StyleSheet.create({
     },
     signupNloginLogo: { alignItems: "center", marginTop: 20, marginBottom: 40 },
     stylesCssOne: { borderWidth: 0, borderRadius: 10, marginTop: 20, width: "100%" },
-    iosClass :  {paddingTop : 20},
+    iosClass :  {paddingTop : 1},
     stylesCssTwo: { borderWidth: 1, borderRadius: 10, marginTop: 12 },
 });
 

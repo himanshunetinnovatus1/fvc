@@ -29,11 +29,7 @@ const EmailVerification = () => {
             ...form,
             [name]: value,
         });
-        if (form.code) {
-            setActiveBTN(true);
-        } else {
-            setActiveBTN(false);
-        }
+        setActiveBTN(value.trim().length > 0)
     };
 
     return (
@@ -68,8 +64,9 @@ const EmailVerification = () => {
                     <Button
                         title="Continue" buttonType
                         bgColor={activeBTN ? COLORS.btnColor : COLORS.btnColorWithOpacity}
+                        btnTextColor={activeBTN ? COLORS.SecondaryDarkest : COLORS.SecondaryDarkestWithOpacityforBTN}
                         stylesCss={styles.stylesCssOne}
-                        btnTextColor={COLORS.SecondaryLightest} btnwidth="100%"
+                        btnwidth="100%"
                         onPress={() => { navigationRoute.navigate('Permissions') }}
                     />
 

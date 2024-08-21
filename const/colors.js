@@ -44,13 +44,13 @@ const COLORS = {
     orangeBTNWithOpacity: "rgba(253, 180, 0, 0.4)",
     BorderGray: "#D1CDD8",
     charcoalColor: "#1E1E1E",
-    Whitebg : "#F6F6F6",
+    Whitebg: "#F6F6F6",
 
-    backGroundGray :"#ECECEE",
+    backGroundGray: "#ECECEE",
 
     Crimson: '#DC472A',
-    btnColor : "#56C2FF",
-    btnColorWithOpacity : "rgba(86, 199, 255, 0.1)"
+    btnColor: "#56C2FF",
+    btnColorWithOpacity: "rgba(86, 199, 255, 0.1)"
 
 }
 

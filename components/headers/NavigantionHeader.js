@@ -8,15 +8,17 @@ import PageStyle from '../../const/PageStyle';
 import COLORS from '../../const/colors';
 
 
-const NavigantionHeader = ({ toggleModal, showEditThings, doneEditing, editPiecePhoto, navigateTo, tabName }) => {
+const NavigantionHeader = ({ toggleModal, showEditThings, doneEditing, editPiecePhoto, tabName }) => {
 
     const navigationRoute = useNavigation();
+
+    console.log("ergreg",navigationRoute.getState());
 
     return (
         <>
             <View style={styles.mainWrapper}>
-                {/* <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.goBack()}> */}
-                <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.navigate(navigateTo)}>
+                <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.goBack()}>
+                    {/* <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.navigate(navigateTo)}> */}
                     <Image
                         source={backArrow}
                         style={styles.backArrow}
@@ -27,12 +29,6 @@ const NavigantionHeader = ({ toggleModal, showEditThings, doneEditing, editPiece
                     <Text style={[styles.nameText, PageStyle.text]}>{tabName || " "}</Text>
                 </View>
                 <View>
-                    {/* {showEditThings.doneBTN === true ?
-                        <TouchableOpacity onPress={doneEditing}>
-                            <View style={styles.doneBTNWrapper}>
-                                <Text style={[styles.doneBTNText, PageStyle.text]}>Done</Text>
-                            </View>
-                        </TouchableOpacity> : */}
                     <TouchableOpacity onPress={toggleModal}>
                         <Image
                             source={threeDots}

@@ -150,10 +150,6 @@ const Profile = ({ route }) => {
                     </View>
                 )}
 
-
-
-
-
             </ScrollView>
 
             <Footer style={styles.footer} activeFooterTab={activeFooterTab} setActiveFooterTab={setActiveFooterTab} />
@@ -184,8 +180,8 @@ const styles = StyleSheet.create({
     light: { width: 15, height: 14 },
     activeBTNWrapper: { backgroundColor: COLORS.backGroundGray, flexDirection: "row", padding: 5, borderRadius: 6 },
     activeBTN: {
-        fontSize: 16, paddingHorizontal: 30, paddingVertical: 8, fontWeight: "700",
-        backgroundColor: "white", borderRadius: 6, width: width * 0.448, borderWidth: 0.8, borderColor: COLORS.BorderGray
+        fontSize: 16, paddingHorizontal: 30, paddingVertical: 8, fontWeight: "700", backgroundColor: "white",
+        borderRadius: 6, width: width * 0.448, borderWidth: 0.8, borderColor: COLORS.BorderGray
     },
     inactiveBTN: {
         fontSize: 16, paddingHorizontal: 30, paddingVertical: 8, fontWeight: "700",
@@ -196,20 +192,5 @@ const styles = StyleSheet.create({
     activeTab: { borderBottomWidth: 2 },
     tabTaxt: { fontSize: 15, textAlign: 'center', fontWeight: "700" },
     pieceImage: { height: 125, width: 110 },
-
-
     footer: { height: 60 },
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

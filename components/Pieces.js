@@ -19,9 +19,15 @@ const Pieces = () => {
 
             <View style={styles.bodyWrapper}>
                 <View style={styles.addPieceOne}>
-                    <Text style={styles.addPieceText}>+</Text>
-                    <Text style={[styles.addPieceTextTwo, PageStyle.text]}>Add Piece</Text>
-                    <Text style={[styles.addPieceTextThree, PageStyle.text]}>8/25 Free pieces</Text>
+                    <Text style={styles.addPieceText}>Closet’s Full</Text>
+                    <Text style={[styles.addPieceTextThree]}>25/25 Free pieces</Text>
+                    <TouchableOpacity style={styles.upgradeWrapper} onPress={()=>navigationRoute.navigate("")}>
+                        <Text style={styles.upgradeText}>Upgrade</Text>
+                        <Image
+                            source={require('../assets/images/blackThunder.png')}
+                            style={styles.upgradeBtnIMG}
+                        />
+                    </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity style={styles.addPiece} onPress={() => navigationRoute.navigate("AddtoCloset")}>
@@ -104,11 +110,19 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     bodyWrapper: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around", marginTop: 20 },
-    addPieceOne: { width: width * 0.27, marginBottom: 15, alignItems: 'center', justifyContent: 'center', borderStyle: 'dotted', borderWidth: 3, borderRadius: 10 },
-    addPieceText: { fontSize: 50, fontWeight: '300', color: COLORS.ShadowDarkest, textAlign: "center" },
-    addPieceTextTwo: { fontSize: 16, fontWeight: '700', color: COLORS.ShadowDarkest },
-    addPieceTextThree: { fontSize: 12, fontWeight: '500', color: COLORS.ShadowDarkest, marginBottom: 5 },
+    addPieceOne: {
+        width: width * 0.27, marginBottom: 15, alignItems: 'center', justifyContent: 'center',
+        borderStyle: 'dashed', borderWidth: 2, borderRadius: 10, borderColor: COLORS.btnColor,
+    },
+    addPieceText: { fontSize: 14, fontWeight: '700', color: COLORS.ShadowDarkest, textAlign: "center" },
+    addPieceTextThree: { fontSize: 11, fontWeight: '400', color: COLORS.ShadowDarkest, marginHorizontal: 5 },
     pieceImage: { height: 125, width: 110 },
+    upgradeWrapper: {
+        flexDirection: "row", backgroundColor: COLORS.btnColor, paddingVertical: 5, paddingHorizontal: 8,
+        marginTop: 10, borderRadius: 6, justifyContent: "center", alignItems: "center",
+    },
+    upgradeBtnIMG: { width: 10, height: 15 },
+    upgradeText: { fontSize: 14, fontWeight: "700", marginRight: 5 }
 });
 
 

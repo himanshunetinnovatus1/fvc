@@ -31,20 +31,16 @@ const LoginScreen = () => {
       ...form,
       [name]: value,
     });
-    if (form.email) {
-      setActiveBTN(true);
-    } else {
-      setActiveBTN(false);
-
-    }
+    setActiveBTN(value.trim().length > 0)
   };
 
   return (
     <>
       <Loader visible={loading} />
-      <KeyboardAwareScrollView style={[styles.mainContainer, ThemeStyle.iosClass]}>
+      <View style={[styles.mainContainer, ThemeStyle.iosClass]}>
+
         <View style={styles.mainWrapper}>
-          <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.navigate("Home")}>
+          <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigationRoute.goBack()}>
             <Image
               source={backArrow}
               style={styles.backArrow}
@@ -80,7 +76,7 @@ const LoginScreen = () => {
             title="Log In"
             buttonType
             bgColor={activeBTN ? COLORS.btnColor : COLORS.btnColorWithOpacity}
-            btnTextColor={COLORS.SecondaryDarkestWithOpacityforBTN}
+            btnTextColor={activeBTN ? COLORS.SecondaryDarkest : COLORS.SecondaryDarkestWithOpacityforBTN}
             stylesCss={ThemeStyle.stylesCssOne}
             btnwidth="100%"
             onPress={() => {
@@ -104,17 +100,17 @@ const LoginScreen = () => {
           />
 
         </View>
-      </KeyboardAwareScrollView>
-      <View style={styles.bottomSection}>
-        <View style={{ textAlign: 'center', flexDirection: "row", justifyContent: "center" }}>
-          <Text style={{ fontWeight: '300', fontSize: height * 0.02 }}>
-            Don’t have an account? {" "}
-          </Text>
-          <TouchableOpacity >
-            <Text onPress={() => navigationRoute.navigate("SignUp")} style={[PageStyle.H4, { fontSize: height * 0.02, textDecorationLine: 'underline', color: COLORS.ShadowDarkest }]}>
-              Sign Up
+        <View style={styles.bottomSection}>
+          <View style={{ textAlign: 'center', flexDirection: "row", justifyContent: "center" }}>
+            <Text style={{ fontWeight: '300', fontSize: height * 0.02 }}>
+              Don’t have an account? {" "}
             </Text>
-          </TouchableOpacity>
+            <TouchableOpacity >
+              <Text onPress={() => navigationRoute.navigate("SignUp")} style={[PageStyle.H4, { fontSize: height * 0.02, textDecorationLine: 'underline', color: COLORS.ShadowDarkest }]}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </>
@@ -123,7 +119,7 @@ const LoginScreen = () => {
 
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
-  mainContainer: { backgroundColor: "white" },
+  mainContainer: { backgroundColor: "white", height: height, justifyContent: 'space-between', },
   mainWrapper: {
     flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
     paddingVertical: width * 0.06, position: 'relative', marginBottom: height * 0.015,
@@ -134,7 +130,7 @@ const styles = StyleSheet.create({
     color: COLORS.ShadowDarkest, fontSize: 24, fontWeight: '700', textAlign: 'center'
   },
   logo: { width: 100, height: 100 },
-  subWrapper: { paddingHorizontal: width * 0.06, },
+  subWrapper: { paddingHorizontal: width * 0.06, marginBottom: 170 },
   backWrapper: { flexDirection: "row", justifyContent: "center", alignItems: "center" },
   backArrow: { width: 23, height: 23, },
   container: { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginVertical: 30 },
@@ -146,14 +142,8 @@ const styles = StyleSheet.create({
     fontWeight: '400', lineHeight: 12, marginHorizontal: 8,
   },
   imgStyle: { width: 16 },
-
   TermsPolicy: { marginVertical: height * 0.07, },
-  bottomSection: {
-    position: 'absolute',
-    bottom: 30, left: 0, right: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+  bottomSection: { marginBottom: 30 }
 });
 
 export default LoginScreen;

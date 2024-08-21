@@ -105,7 +105,7 @@ const AddtoCloset = () => {
                 toggleModal={toggleModal}
                 showEditThings={showEditThings}
                 doneEditing={doneEditing}
-                navigateTo="MainDashboard"
+                // navigateTo="MainDashboard"
                 tabName="Piece Overview"
             />
             <View style={styles.mainWrapper}>
@@ -347,7 +347,7 @@ export default AddtoCloset;
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-    safeArea: { flex: 1, backgroundColor: 'white'},
+    safeArea: { flex: 1, backgroundColor: 'white' },
     input: {
         height: 40, width: width * 0.4,
         borderWidth: 1, borderRadius: 5, borderColor: COLORS.TextTertiart,
